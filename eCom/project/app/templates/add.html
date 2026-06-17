@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="form-container">
+    <h2>Add Product</h2>
+    <h2>URL:https://picsum.photos/300/200</h2>
+
+    <form method="get" action="/add">
+        <input type="text" placeholder="Product Name" name = "name" required>
+
+        <input type="text" placeholder="Image URL" name = "imgurl" required>
+
+        <textarea placeholder="Product Description" rows="4" name = "description" required></textarea>
+
+        <input type="number" placeholder="Price" name = "price" step="0.01" required>
+
+        <button type="submit">Create Card</button>
+    </form>
+</div>
+
+{% endblock %}

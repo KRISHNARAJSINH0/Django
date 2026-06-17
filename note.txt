@@ -1,0 +1,12 @@
+username : krishnaraj
+pass : kanbha00
+
+to make project : python -m django startproject name_of_project 
+to make app : python manage.py startapp app_name
+to run project : python manage.py runserver
+to create Database table : python manage.py migrate
+to create admin : python manage.py createsuperuser
+to connect html page : {% url 'home'%} / home is name in url 
+to make admin : python manage.py createsuperuser 
+to make database : 1> python manage.py makemigrations
+		   2> python manage.py migrate 

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'css/add.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/show.css' %}" />
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">ECOM</div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+          <a href="{% url 'add' %}">Add</a>
+        </li>
+        <li>
+          <a href="{% url 'show' %}">Show</a>
+        </li>
+      </ul>
+    </nav>
+    {% block content %}
+      <div class="search-container">
+        <form class="search-form">
+          <input type="text" placeholder="Search products..." class="search-input" name="search" value="{{ request.GET.search }}" />
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+      </div>
+      <section class="home">
+        <h1>Featured Products</h1>
+
+        <div class="card-container">
+            {% for product in products %}
+              <div class="card">
+                <img src="{{ product.imgurl }}" alt="Product" />
+
+            <p>
+              <strong>Name :</strong> {{ product.name }}
+            </p>
+
+            <p>
+              <strong>Description :</strong> {{ product.description }}
+            </p>
+
+            <p>
+              <strong>Price :</strong> ₹{{ product.price }}
+            </p>
+
+            <button>Buy Now</button>
+          </div>
+        {% endfor %}
+        </div>
+      </section>
+    {% endblock %}
+  </body>
+</html>

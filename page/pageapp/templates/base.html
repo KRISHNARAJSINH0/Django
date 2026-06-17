@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Navbar and Footer</title>
+    <style>
+        /* Basic reset to remove default browser margins */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling to ensure the footer stays at the bottom of the page */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Navbar Styling --- */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between; /* Pushes logo left and links right */
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px; /* Space between links */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50; /* Changes color slightly when hovered */
+        }
+
+        /* --- Main Content Area --- */
+        main {
+            flex: 1; /* This is the key to pushing the footer to the bottom */
+            padding: 40px 30px;
+        }
+
+        /* --- Footer Styling --- */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MySite</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h1>Welcome!</h1>
+        <p>This area will stretch to fit the screen, pushing the footer neatly to the bottom.</p>
+    </main>
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>&copy; 2026 MySite. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

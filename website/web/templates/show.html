@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+    <style>
+        *{
+            margin: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Show Items</h1>
+    {% for i in d %}
+    
+    <h3>Name : {{ i.name }}</h3>
+    <h3>Price : {{ i.price }}</h3>
+    <br>
+    {% endfor %}
+    
+    {% endblock content %}
+</body>
+</html>

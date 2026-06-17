@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        {% block content %}
+        <h1>This is data</h1>
+        <br>
+        <h2>Roll No : {{d.roll_number}}</h2>
+        <h2>Subject: {{d.subject}}</h2>
+        {% endblock %}
+        <h1>Upper Case</h1>
+    
+        
+        {% for city in d.city %}
+            <h2>City: {{city|upper}}</h2>
+        {% endfor %}
+        <br>
+
+        <h1>Lower Case</h1>
+        {% for city in d.city %}
+            <h2>City: {{city|lower}}</h2>
+        {% endfor %}
+        <br>
+        <h1>Length  4</h1>
+        {% for city in d.city %}
+            {% if city|length < 6 %}
+            <h2>City: {{city}}</h2>
+            {% endif %}
+        {% endfor %}
+        <br>
+        {% for i in d.marks %}
+            {% if i > 30 %}
+                <h2>Mark: {{i}} And Pass</h2>
+            {% else %}
+                <h2>Mark: {{i}} And Fail</h2>
+            {% endif %}
+        {% endfor %}
+
+
+    </body>
+</html>

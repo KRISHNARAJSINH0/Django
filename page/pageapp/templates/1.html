@@ -1,0 +1,12 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h1>This is data</h1>
+        <h2>Name: {{d.name}}</h2>
+        <h2>Surname: {{d.surname}}</h2>
+        <button><a href="/data/">Next</a></button>
+    </body>
+</html>

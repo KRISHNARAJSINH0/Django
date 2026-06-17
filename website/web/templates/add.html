@@ -1,0 +1,30 @@
+{% extends 'home.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <h1>Add Item</h1>
+    <br>
+    <form action="/add" method="get">
+        <label for="item">Item: </label>
+        <input type="text" id="item" name="item">
+        <br><br>
+        <label for="price">Item Price: </label>
+        <input type="text" name="price" id="price">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% endblock content %}
+</body>
+</html>

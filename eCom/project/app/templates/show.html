@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="table-container">
+    <h2>Product Management</h2>
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>View</th>
+            </tr>
+        </thead>
+{% for product in products %}
+        <tbody>
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>₹{{ product.price }}</td>
+                <td><a href="#" class="edit-btn">Edit</a></td>
+                <td><a href="#" class="delete-btn">Delete</a></td>
+                <td><a href="#" class="view-btn">Details</a></td>
+            </tr>
+{% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

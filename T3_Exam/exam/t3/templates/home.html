@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+        }
+
+        /* Navbar */
+        nav{
+            background:#333;
+            padding:15px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        nav h2{
+            color:#fff;
+        }
+
+        nav ul{
+            display:flex;
+            list-style:none;
+            gap:20px;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav ul li a:hover{
+            color:#ffd700;
+        }
+
+        /* Search */
+        .search-box{
+            text-align:center;
+            margin:25px;
+        }
+
+        .search-box input{
+            width:60%;
+            max-width:500px;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:16px;
+        }
+
+        .search-box button{
+            padding:10px 18px;
+            border:none;
+            background:#007bff;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .search-box button:hover{
+            background:#0056b3;
+        }
+
+        /* Cards */
+        .container{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:25px;
+            padding:20px;
+        }
+
+        .card{
+            width:300px;
+            background:white;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 2px 10px rgba(0,0,0,0.15);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .card-content{
+            padding:15px;
+        }
+
+        .card-content h3{
+            margin-bottom:10px;
+        }
+
+        .price{
+            color:green;
+            font-size:22px;
+            font-weight:bold;
+            margin:10px 0;
+        }
+
+        .description{
+            color:#555;
+            margin-bottom:15px;
+        }
+
+        .buy-btn{
+            width:100%;
+            padding:10px;
+            background:#28a745;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        .buy-btn:hover{
+            background:#1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h2>My Shop</h2>
+
+        <ul>
+            <li><a href={% url 'home' %}>Home</a></li>
+            <li><a href={% url 'add' %}>Add</a></li>
+            <li><a href={% url 'show' %}>Show</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+  
+    <!-- Search -->
+    <div class="search-box">
+        <input type="text" placeholder="Search products...">
+        <button>Search</button>
+    </div>
+
+    <!-- Product Cards -->
+    <div class="container">
+        {% for i in d %}
+        <div class="card">
+            <img src= {{i.url}} alt="Product">
+            <div class="card-content">
+                <h3>{i.title}</h3>
+                <p class="price">{{i.price}}</p>
+                <p class="description">
+                        {{i.desc}}
+                </p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}
+</body>
+</html>
